@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="lib/codemirror.css">
+    <link rel="stylesheet" href="lib/xq-dark.css">
+    <link rel="stylesheet" href="lib/xq-light.css">
+    <link rel="stylesheet" href="popup.css">
+  </head>
+
+<body>
+  <div id="container">
+    
+    <a href="#" class="button toggle" id="downloadImages"><i class="check"></i>Download Images</a>
+    <a href="/options/options.html" id="options" target="_blank">open options</a>
+    <a href="#" id="batchProcess">batch</a>
+    <div class="row" id="clipOption">
+      <a href="#" class="button toggle" id="selected"><i class="check"></i>Selected Text</a>
+      <a href="#" class="button toggle" id="document"><i class="check"></i>Entire Document</a>
+    </div>
+    <a href="#" class="button toggle" id="includeTemplate"><i class="check"></i>Include front/back template</a>
+    <input type="text" id="title"></input>
+    <textarea id="md"></textarea>
+    <div class="button-row">
+        <a href="#" class="button" id="download">Download</a>
+        <a href="#" class="button" id="copy">Copy</a>
+    </div>
+    <div class="button-row">
+        <a href="#" class="button" id="downloadNoLinks">Download (No Links/Images)</a>
+        <a href="#" class="button" id="copyNoLinks">Copy (No Links/Images)</a>
+    </div>
+    <div class="button-row">
+        <a href="#" class="button" id="downloadSelection">Download selected</a>
+        <a href="#" class="button" id="copySelection">Copy selected</a>
+    </div>
+    <div class="button-row">
+        <a href="#" class="button" id="downloadSelectionNoLinks">Download selected (No Links/Images)</a>
+        <a href="#" class="button" id="copySelectionNoLinks">Copy selected (No Links/Images)</a>
+    </div>
+  </div>
+  <div id="batchContainer" style="display: none;">
+    <h2 class="batch-title">Batch Processing</h2>
+    <textarea id="urlList" placeholder="Enter URLs to convert (one per line)&#10;Example:&#10;https://example.com/page1&#10;https://example.com/page2"></textarea>
+    <div class="button-row">
+        <a href="#" class="button" id="convertUrls">Convert All</a>
+        <a href="#" class="button" id="cancelBatch">Cancel</a>
+    </div>
+    <div id="progressContainer" style="display: none;">
+      <div class="progress-header">
+          <span id="progressStatus">Processing URLs...</span>
+          <span id="progressCount">0/0</span>
+      </div>
+      <div class="progress-bar-container">
+          <div id="progressBar"></div>
+      </div>
+      <div id="currentUrl"></div>
+  </div>
+</div>
+  <div id="spinner"></div>
+  <script type="application/javascript" src="../browser-polyfill.min.js"></script>
+  <script type="application/javascript" src="lib/codemirror.js"></script>
+  <script type="application/javascript" src="lib/modes/markdown/markdown.js"></script>
+  <script type="application/javascript" src="popup.js"></script>
+</body>
+
+</html>
